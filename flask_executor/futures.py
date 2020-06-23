@@ -79,6 +79,16 @@ class FutureCollection:
         """
         return self._futures.pop(future_key, None)
 
+    def pop_all_list(self):
+        """Return Futures what were added to the collection. And also all
+        Futures will be removed from the collection.
+        """
+        future_list = []
+        for future_key in self._futures.keys():
+            future_list.append(self._futures.pop(future_key, None))
+
+        return future_list
+
 
 class FutureProxy(InstanceProxy, Future):
     """A FutureProxy is an instance proxy that wraps an instance of
