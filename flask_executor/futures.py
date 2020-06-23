@@ -79,6 +79,12 @@ class FutureCollection:
         """
         return self._futures.pop(future_key, None)
 
+    def get(self, future_key):
+        """Return a Future from the collection. Returned future do not be
+        removed.
+        """
+        return self._futures.get(future_key, None)
+
     def pop_all_list(self):
         """Return Futures what were added to the collection. And also all
         Futures will be removed from the collection.
